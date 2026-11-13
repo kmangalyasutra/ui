@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | mangalyasutra.com</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="images/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="images/icons/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/app-v2.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="logo" href="/" aria-label="mangalyasutra.com home"><img src="images/brand/logo-header.png" alt="mangalyasutra.com" width="292" height="28"></a>
+  <nav class="nav" aria-label="Admin"><a href="app.html">Member app</a><button type="button" id="logout">Log out</button></nav>
+</div></header>
+<main><div class="wrap" id="view">
+  <h1 class="page-title">Admin</h1>
+  <p class="msg error" id="denied" hidden></p>
+  <div id="content" hidden>
+    <div class="stats" id="stats"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+      <a class="btn small" href="/api/admin/users.csv" download>Download registrations (CSV)</a>
+    </div>
+    <h2 style="margin:16px 0 8px">Registrations</h2>
+    <div class="tablewrap"><table><thead><tr><th>Name</th><th>Mobile</th><th>Gender</th><th>Age</th><th>District</th><th>Verified</th><th>Status</th><th>Joined</th><th></th></tr></thead><tbody id="users"></tbody></table></div>
+    <h2 style="margin:24px 0 8px">Reports</h2>
+    <div class="tablewrap"><table><thead><tr><th>When</th><th>Reported profile</th><th>By</th><th>Reason</th></tr></thead><tbody id="reports"></tbody></table></div>
+  </div>
+</div></main>
+<script src="js/admin.js"></script>
+</body>
+</html>
