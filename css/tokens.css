@@ -1,0 +1,36 @@
+:root {
+  /* Palette (primary orange #F28C28 on white surfaces).
+     Saffron #F28C28, gold #D4AF37, maroon #800020, ivory #FFF8E7, kumkum #C62828. */
+  --primary: #F28C28;       /* primary orange: fills (buttons, card tab, chips). Use dark text on it. */
+  --primary-ink: #A85A00;   /* darker orange for text and links on white (5.1:1) */
+  --primary-dark: #E07B10;
+  --accent: #F28C28;
+  --accent-2: #FFC46B;
+  --paper: #FFFFFF;
+  --danger: #C62828;
+  --deep: #800020;          /* secondary (burgundy): dark bands */
+  --secondary: #800020;
+  --gold: #D4AF37;          /* gold: ornament lines and rings */
+  --kumkum: #C62828;        /* kumkum red: small accents, errors */
+  --bg: #FFF8E7;            /* page background */
+
+  --ink: #111111;
+  --ink-soft: #4A4A4A;
+  --line: #E3E3E3;
+  --field-border: #767676;
+  --surface: #FDF0D5;
+  --tint: #FFF1E0;
+
+  /* Type */
+  --font-head: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Spacing scale */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+
+  /* Shape and depth */
+  --r-card: 12px; --r-btn: 8px; --r-input: 4px;
+  --shadow: 0 20px 50px rgba(17, 17, 17, .18);
+  --ease: 200ms ease;
+}

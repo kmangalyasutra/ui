@@ -1,0 +1,58 @@
+/* soulmates.com V2: member app and admin. Loaded after app.css; re-skins it to match v2.css
+   (white sticky bar, crimson pill buttons, light grey canvas, rounded white cards). Markup unchanged. */
+:root{
+  --primary:#F28C28; --primary-ink:#B85C00; --primary-dark:#D9761A;
+  --accent:#F28C28; --accent-2:#F28C28; --secondary:#F28C28; --deep:#0D0F12;
+  --tint:rgba(242,140,40,.1); --bg:#FFFFFF; --surface:#FFFFFF; --paper:#FFFFFF;
+  --ink:#0D0F12; --ink-soft:rgba(13,15,18,.72); --line:#DAE1ED; --field-border:rgba(13,15,18,.18); --danger:#D92D20;
+  --font-ui:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-head:'Source Sans 3',system-ui,sans-serif; --font-display:'Source Sans 3',system-ui,sans-serif;
+  --r-card:8px; --r-btn:8px; --r-input:8px;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink-soft);letter-spacing:0}
+h1,h2,h3,.page-title{font-family:var(--font-ui);font-weight:700;letter-spacing:-.01em}
+a{color:var(--primary-ink)}
+
+/* Top bar: white, sticky, brand wordmark in serif like the public site */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(247,247,247,.85);color:var(--ink);border-bottom:1px solid var(--line)}
+.topbar .wrap{max-width:1160px;min-height:72px}
+.logo img{display:block;height:22px;width:auto}
+.nav a,.nav button{color:var(--ink);border-radius:999px;font-weight:600;padding:0 16px}
+.nav a:hover,.nav button:hover{background:var(--tint);color:var(--primary-ink)}
+.nav a[aria-current=page]{background:var(--tint);color:var(--primary-ink)}
+.badge{background:var(--primary);color:#fff}
+.topbar :focus-visible{outline-color:var(--primary-ink)}
+
+main{padding:32px 0 80px}
+.wrap{max-width:1160px;padding:0 20px}
+.card,.pcard,.stat,.thread,.tablewrap{border:0;border-radius:20px;box-shadow:0 1px 2px rgba(13,15,18,.04),0 0 0 1px rgba(13,15,18,.06)}
+.card{padding:28px}
+
+/* Buttons */
+.btn{background:#F28C28;color:#0D0F12;border-radius:8px;min-height:48px;font-family:var(--font-ui);font-weight:700;letter-spacing:0}
+.btn:hover{background:#D9761A}
+.btn.ghost{background:rgba(13,15,18,.06);color:var(--ink);box-shadow:none}
+.btn.ghost:hover{background:rgba(13,15,18,.1)}
+.btn.danger{background:var(--danger);color:#fff}
+.tabs button{border:0;border-radius:999px;background:rgba(13,15,18,.06)}
+.tabs button[aria-selected=true]{background:#F28C28;border-color:#F28C28;color:#0D0F12}
+.bubble.mine{background:var(--primary);color:#fff}
+.status{background:var(--tint);color:var(--primary-ink)}
+
+/* Fields */
+.field label,.field legend{color:var(--ink);font-weight:600}
+input[type=text],input[type=tel],input[type=date],input[type=number],select,textarea,.composer input{border:1.5px solid var(--field-border);border-radius:12px}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(242,140,40,.28)}
+.checkline input{accent-color:var(--primary-ink)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--primary-ink);outline-offset:3px}
+
+/* Cards and tables */
+.avatar{background-color:var(--tint);color:var(--primary-ink)}
+.pcard h3{font-weight:700}
+.stat b{color:var(--primary-ink)}
+th{background:var(--bg);color:var(--ink)}
+.draftbar{background:#FFF8E1}
+
+.page-title{font-size:1.5rem}
+.pcard h3{font-size:1.05rem}
