@@ -321,6 +321,12 @@
     </div>
     <p class="err form-err" id="rg-form-err" role="alert"></p>
     <button type="submit" class="btn-primary" id="rg-submit">Register Free</button>
+
+<script>
+    document.getElementById("rg-submit").addEventListener("click", function () {
+        alert("Please try later.");
+    });
+</script>
     <p class="dlg-note">By registering you agree to our <a href="/terms" data-link="terms">Terms of Use</a> and <a href="/privacy" data-link="privacy">Privacy Policy</a>.</p>
   </form>
 
@@ -344,6 +350,92 @@
     <p>Your number is verified. Taking you to your account.</p>
   </div>
 </dialog>
+
+<script>
+const registrationForm = document.getElementById("rg-form");
+const submitButton = document.getElementById("rg-submit");
+const formError = document.getElementById("rg-form-err");
+
+const API_URL = "https://register-fdaqc0fqasgvhjam.southindia-01.azurewebsites.net";
+
+registrationForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    formError.textContent = "";
+
+    // Browser validation
+    if (!registrationForm.checkValidity()) {
+        registrationForm.reportValidity();
+        return;
+    }
+
+    const formData = new FormData(registrationForm);
+
+    // Honeypot spam protection
+    if (formData.get("company")) {
+        return;
+    }
+
+    const mobile = formData.get("mobile").trim();
+
+    // Validate Indian mobile number
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+        document.getElementById("rg-mobile-err").textContent =
+            "Enter a valid 10-digit Indian mobile number.";
+        return;
+    }
+
+    const registrationData = {
+        name: formData.get("name").trim(),
+        mobile: "+91" + mobile,
+        gender: formData.get("gender"),
+        age: Number(formData.get("age")),
+        motherTongue: formData.get("tongue"),
+        district: formData.get("district"),
+        couponCode: formData.get("coupon").trim() || null
+    };
+
+    try {
+        submitButton.disabled = true;
+        submitButton.textContent = "Registering...";
+
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(registrationData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Registration failed.");
+        }
+
+        alert(
+            "Registration successful!\nYour Registration ID: " +
+            result.registrationId
+        );
+
+        registrationForm.reset();
+
+        const dialog = document.getElementById("reg-dialog");
+        if (dialog.open) {
+            dialog.close();
+        }
+
+    } catch (error) {
+        console.error("Registration error:", error);
+        formError.textContent = error.message ||
+            "Unable to complete registration. Please try again.";
+
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Register Free";
+    }
+});
+</script>
+
 
 <footer class="ftr">
   <div class="wrap">
